@@ -63,7 +63,7 @@ const Header = ({ onLogoutClick }) => {
               About
             </Link>
             <Link to="services" className="hover:text-gray-300">
-              Services
+              Service
             </Link>
           </nav>
 
