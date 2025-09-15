@@ -12,9 +12,12 @@ import "../../../src/index.css";
 import Avatar from "@mui/material/Avatar";
 import { IconButton } from "@mui/material";
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
+import { useSelector } from "react-redux";
 
 const Header = ({ onLogoutClick }) => {
   const [profileMenuAnchorEl, setProfileMenuAnchorEl] = useState(null);
+
+  const { isLoggedIn } = useSelector((state) => state.auth);
 
   const handleAvatarClick = (event) => {
     setProfileMenuAnchorEl(event.currentTarget);
@@ -22,7 +25,6 @@ const Header = ({ onLogoutClick }) => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleScroll = () => {
     if (window.scrollY >= scrollThreshold) {

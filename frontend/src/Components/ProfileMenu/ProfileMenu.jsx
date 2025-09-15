@@ -4,17 +4,23 @@ import {
   ListItemIcon,
   Typography,
   Divider,
+  Avatar,
 } from "@mui/material";
 import Settings from "@mui/icons-material/Settings";
-import Person from "@mui/icons-material/Person";
+import CakeIcon from "@mui/icons-material/Cake";
+import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import { Button } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { useSelector } from "react-redux";
+import dayjs from "dayjs";
 
 const ProfileMenu = ({
   profileMenuAnchorEl,
   setProfileMenuAnchorEl,
   onLogoutClick,
 }) => {
+  const { user } = useSelector((state) => state.auth);
+  const { firstname, lastname, email, dob, phone } = user;
   const open = Boolean(profileMenuAnchorEl);
   const handleClose = () => {
     setProfileMenuAnchorEl(null);
@@ -24,8 +30,8 @@ const ProfileMenu = ({
       anchorEl={profileMenuAnchorEl}
       open={open}
       onClose={handleClose}
-      // anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-      // transformOrigin={{ vertical: "top", horizontal: "right" }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
       PaperProps={{
         sx: {
           mt: 1,
@@ -35,14 +41,53 @@ const ProfileMenu = ({
         },
       }}
     >
-      <MenuItem disabled>
-        <ListItemIcon>
-          <Person fontSize="small" />
-        </ListItemIcon>
-        <Typography variant="body2">John Doe</Typography>
+      <MenuItem
+        sx={{
+          display: "flex",
+          flexDirection: "column", // 👈 stack children vertically
+          alignItems: "center", // 👈 center them horizontally
+          backgroundColor: "lightgray",
+          m: 1.5,
+          borderRadius: 1.5,
+        }}
+      >
+        <Avatar
+          alt="User"
+          src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"
+        />
+        <Typography
+          sx={{
+            fontWeight: "bold",
+            fontSize: "20px",
+            textAlign: "center",
+          }}
+        >{`${firstname} ${lastname}`}</Typography>
+        <Typography
+          sx={{
+            textAlign: "center",
+            fontSize: "14px", // optional: smaller than name
+            color: "text.secondary", // optional: lighter color
+          }}
+        >
+          {email}
+        </Typography>
       </MenuItem>
 
       <Divider />
+
+      <MenuItem>
+        <ListItemIcon>
+          <CakeIcon fontSize="small" />
+        </ListItemIcon>
+        {dayjs(dob).format("llll")}
+      </MenuItem>
+
+      <MenuItem onClick={() => alert("Go to settings")}>
+        <ListItemIcon>
+          <PhoneAndroidIcon fontSize="small" />
+        </ListItemIcon>
+        {phone}
+      </MenuItem>
 
       <MenuItem onClick={() => alert("Go to settings")}>
         <ListItemIcon>
@@ -51,12 +96,17 @@ const ProfileMenu = ({
         Update Profile
       </MenuItem>
 
+      <Divider />
+
       <MenuItem>
         <Button
           className="w-full"
           variant="outlined"
           color="error"
-          onClick={onLogoutClick}
+          onClick={() => {
+            handleClose();
+            onLogoutClick();
+          }}
           startIcon={<LogoutIcon />}
           sx={{
             borderWidth: "1.5px",

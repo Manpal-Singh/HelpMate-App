@@ -10,11 +10,13 @@ import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signupValidationSchema } from "../../ValidationSchema/authSchema";
 import dayjs from "dayjs";
+import { toast } from "react-toastify";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -32,7 +34,6 @@ const Signup = () => {
         ...values,
         dob: values.dob ? dayjs(values.dob).format("DD-MM-YYYY") : "",
       };
-      console.log("Submitting form with values:", formattedValues);
       try {
         const response = await fetch("/api/auth/register", {
           method: "POST",
@@ -45,19 +46,14 @@ const Signup = () => {
         const data = await response.json();
 
         if (!response.ok) {
-          // Handle error
-          console.error("❌ Registration failed:", data.msg || data.error);
-          alert(data.msg || "Registration failed");
+          toast.error(`User Registration Failed: ${data.msg || data.error}`);
           return;
         }
-
-        // Success
-        console.log("✅ Registration successful:", data);
-        alert("User registered successfully");
+        toast.success("User Registered Successfully 🎉");
+        navigate("/login");
         resetForm();
       } catch (err) {
-        console.error("❌ Error during signup:", err);
-        alert("Something went wrong");
+        toast.error(`User Registration Failed: ${err.message}`);
       } finally {
         setSubmitting(false);
       }

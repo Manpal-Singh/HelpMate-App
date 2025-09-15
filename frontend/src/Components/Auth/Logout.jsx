@@ -1,4 +1,3 @@
-// LogoutPopup.jsx
 import {
   Dialog,
   DialogTitle,

@@ -6,11 +6,13 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../store/authSlice";
 import { loginValidationSchema } from "../../ValidationSchema/authSchema";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
@@ -37,10 +39,8 @@ const Login = () => {
           throw new Error(data.msg || "Login failed");
         }
 
-        console.log("✅ Login successful:", data);
-
-        // Optional: store token or redirect
-        localStorage.setItem("token", data.token);
+        console.log("data", data);
+        dispatch(loginUser(data));
         toast.success("Login successful 🎉");
         navigate("/");
 

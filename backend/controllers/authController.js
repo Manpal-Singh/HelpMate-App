@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/userRegister");
 const jwt = require("jsonwebtoken");
 
+// Registration controller
 const registerUser = async (req, res) => {
   const { firstname, lastname, dob, phone, email, password, confirmPassword } =
     req.body;
@@ -53,6 +54,7 @@ const registerUser = async (req, res) => {
   }
 };
 
+// Login controller
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -83,10 +85,11 @@ const loginUser = async (req, res) => {
       token,
       user: {
         id: user._id,
-        firstName: user.firstname,
-        lastName: user.lastname,
+        firstname: user.firstname,
+        lastname: user.lastname,
         phone: user.phone,
         email: user.email,
+        dob: user.dob,
       },
     });
   } catch (err) {
