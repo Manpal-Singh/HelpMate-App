@@ -36,19 +36,15 @@ const Login = () => {
         const data = await response.json();
 
         if (!response.ok) {
-          throw new Error(data.msg || "Login failed");
+          toast.error(`User Login Failed: ${data.msg || data.error}`);
+          return;
         }
 
-        console.log("data", data);
         dispatch(loginUser(data));
         toast.success("Login successful 🎉");
         navigate("/");
-
-        // Redirect (optional)
-        // navigate("/dashboard");
       } catch (error) {
-        console.error("❌ Login error:", error.message);
-        toast.error(error.message || "Login failed");
+        toast.error(`User Login Failed: ${error.message}`);
       } finally {
         setSubmitting(false);
       }

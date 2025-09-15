@@ -44,8 +44,8 @@ const ProfileMenu = ({
       <MenuItem
         sx={{
           display: "flex",
-          flexDirection: "column", // 👈 stack children vertically
-          alignItems: "center", // 👈 center them horizontally
+          flexDirection: "column",
+          alignItems: "center",
           backgroundColor: "lightgray",
           m: 1.5,
           borderRadius: 1.5,
@@ -65,8 +65,8 @@ const ProfileMenu = ({
         <Typography
           sx={{
             textAlign: "center",
-            fontSize: "14px", // optional: smaller than name
-            color: "text.secondary", // optional: lighter color
+            fontSize: "14px",
+            color: "text.secondary",
           }}
         >
           {email}

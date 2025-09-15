@@ -18,6 +18,7 @@ import { toast } from "react-toastify";
 const Signup = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  
   const formik = useFormik({
     initialValues: {
       firstname: "",
@@ -122,12 +123,11 @@ const Signup = () => {
               placeholder="Phone Number"
               textFieldProps={{
                 placeholder: "Enter phone number",
-                fullWidth: true,
               }}
               value={formik.values.phone || ""}
               onChange={(value) => formik.setFieldValue("phone", value)}
               onBlur={() => formik.setFieldTouched("phone", true)}
-              defaultCountry="IN"
+              defaultCountry="US"
               error={formik.touched.phone && Boolean(formik.errors.phone)}
               helperText={formik.touched.phone && formik.errors.phone}
             />
