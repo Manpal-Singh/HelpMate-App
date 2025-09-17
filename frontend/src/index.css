@@ -1,9 +1,7 @@
-
 @import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 :root {
   font-family: "Roboto", sans-serif;
@@ -12,7 +10,6 @@
 
   color-scheme: light dark;
   /* color: rgba(255, 255, 255, 0.87); */
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,4 +19,27 @@
 
 body {
   margin: 0;
+}
+
+.container {
+  max-width: 1980px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.purpleColorBg {
+  background-color: #c718c5;
+  color: #fff;
+}
+.purpleColorText {
+  color: #c718c5;
+}
+section {
+  padding: 5rem 0;
+}
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 700;
 }

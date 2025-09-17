@@ -43,68 +43,83 @@ const Header = ({ onLogoutClick }) => {
 
   return (
     <header
-      className={`shadow-md bg-gradient-to-r from-green-400 to-blue-400 z-10 text-white duration-500 ease-in ${
+      className={`shadow-md bg-black text-white z-50  ease-in ${
         isScroll ? "sticky top-0" : " "
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 cursor-pointer">
-            <img
-              src={helpMateLogo}
-              alt={helpMateLogoText}
-              className="h-10 w-auto"
-            />
+            <Link to="/">
+              <img
+                src={helpMateLogo}
+                alt={helpMateLogoText}
+                className="h-10 w-auto"
+              />
+            </Link>
           </div>
 
-          <nav className="hidden md:flex space-x-6">
-            <Link to="/" className="hover:text-gray-300">
-              Home
-            </Link>
-            <Link to="about" className="hover:text-gray-300">
-              About
-            </Link>
-            <Link to="services" className="hover:text-gray-300">
-              Service
-            </Link>
-          </nav>
+          <div className="flex flex-row items-center justify-center">
+            <nav className="hidden md:flex items-center justify-center space-x-6">
+              <Link to="/" className="">
+                Home
+              </Link>
+              <Link to="about" className="">
+                About
+              </Link>
+              <Link to="services" className="">
+                Service
+              </Link>
+              <Link to="contact" className="">
+                Contact
+              </Link>
 
-          <div className="flex items-center space-x-4">
-            {isLoggedIn ? (
-              <div className="flex items-center">
-                <IconButton
-                  onClick={handleAvatarClick}
-                  size="small"
-                  sx={{ ml: 2 }}
-                >
-                  <Avatar
-                    alt="User"
-                    src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"
+              {!isLoggedIn && (
+                <>
+                  <Link
+                    to="signup"
+                    className="purpleColorBg px-4 py-2 rounded-lg   shadow-md hover:shadow-lg hover:opacity-90 transition-all duration-200 inline-flex items-center justify-center"
+                  >
+                    Signup
+                  </Link>
+
+                  <Link
+                    to="login"
+                    className="purpleColorBg px-4 py-2 rounded-lg   shadow-md hover:shadow-lg hover:opacity-90 transition-all duration-200 inline-flex items-center justify-center "
+                  >
+                    Login
+                  </Link>
+                </>
+              )}
+            </nav>
+            <div className="flex items-center ">
+              {isLoggedIn && (
+                <div className="flex items-center">
+                  <IconButton
+                    onClick={handleAvatarClick}
+                    size="small"
+                    sx={{ ml: 2 }}
+                  >
+                    <Avatar
+                      alt="User"
+                      src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"
+                    />
+                  </IconButton>
+                  <ProfileMenu
+                    onLogoutClick={onLogoutClick}
+                    profileMenuAnchorEl={profileMenuAnchorEl}
+                    setProfileMenuAnchorEl={setProfileMenuAnchorEl}
                   />
-                </IconButton>
-                <ProfileMenu
-                  onLogoutClick={onLogoutClick}
-                  profileMenuAnchorEl={profileMenuAnchorEl}
-                  setProfileMenuAnchorEl={setProfileMenuAnchorEl}
-                />
-              </div>
-            ) : (
-              <div>
-                <Link to="signup" className="m-2 hover:text-gray-300">
-                  Signup
-                </Link>
-                <Link to="login" className="hover:text-gray-300">
-                  Login
-                </Link>
-              </div>
-            )}
+                </div>
+              )}
 
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-2xl focus:outline-none"
-            >
-              <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
-            </button>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="md:hidden text-2xl focus:outline-none"
+              >
+                <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
+              </button>
+            </div>
           </div>
         </div>
       </div>
