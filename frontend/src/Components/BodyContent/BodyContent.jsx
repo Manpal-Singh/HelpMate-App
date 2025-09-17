@@ -2,24 +2,42 @@ import { ServiceList } from "../Services/ServiceList";
 
 const BodyContent = () => {
   return (
-    <div className="w-[80%] mx-auto mt-10">
-      <div className="top-box flex flex-row gap-5 bg-white text-black p-5 items-center rounded-lg shadow-md">
-        <select
-          id="service"
-          className="border border-gray-300 rounded-lg p-2 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-black w-[500px]"
-        >
-          <option value="">Services</option>
-          <option value="Cook">Cook</option>
-          <option value="Maid">Maid</option>
-          <option value="Baby Sitter">Baby Sitter</option>
-          <option value="Watchman">Watchman</option>
-        </select>
+    <div className="w-[80%] mx-auto">
+      <div
+        style={{
+          backgroundColor: "#e8dae6ff",
+          padding: "50px 20px",
+        }}
+      >
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          {/* Heading */}
+          <h2
+            style={{
+              textAlign: "center",
+              fontSize: "32px",
+              marginBottom: "10px",
+            }}
+          >
+            Our Services
+          </h2>
+          <p
+            style={{
+              textAlign: "center",
+              color: "#555",
+              marginBottom: "40px",
+              maxWidth: "700px",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            At Helpmate, we connect you with trusted professionals for your
+            daily needs – from home care to skilled technicians. Explore our
+            wide range of services tailored just for you.
+          </p>
 
-        <div className="ml-auto font-semibold">Sort</div>
-      </div>
-
-      <div className="bottom-box mt-5 p-5 bg-gray-100 rounded-lg shadow-inner">
-        <ServiceList />
+          {/* Services Cards Grid */}
+          <ServiceList />
+        </div>
       </div>
     </div>
   );

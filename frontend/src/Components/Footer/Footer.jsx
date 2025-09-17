@@ -8,9 +8,10 @@ import { getCurrentYear } from "../../utils/dateUtils";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white">
-      <div className="max-w-7xl mx-auto py-6  ">
-        <div className="flex flex-col md:flex-row justify-between items-center ">
+    <footer className="bg-black text-white py-10 mt-12">
+      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Brand */}
+        <div>
           <div className="flex-shrink-0 cursor-pointer">
             <img
               src={helpMateLogo}
@@ -18,71 +19,64 @@ const Footer = () => {
               className="h-12 w-auto"
             />
           </div>
+          <p className="mt-3 text-sm">
+            Your trusted companion for finding reliable household services –
+            from cooks and maids to plumbers and more.
+          </p>
+        </div>
 
-          <ul className="flex flex-row gap-4 ">
+        {/* Quick Links */}
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-3">Quick Links</h3>
+          <ul className="space-y-2 text-sm">
             <li>
-              <Link to="/" className="hover:text-gray-300 transition-colors">
+              <a href="/" className="hover:text-white">
                 Home
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to="/about"
-                className="hover:text-gray-300 transition-colors"
-              >
-                About
-              </Link>
+              <a href="/about" className="hover:text-white">
+                About Us
+              </a>
             </li>
             <li>
-              <Link
-                to="/services"
-                className="hover:text-gray-300 transition-colors"
-              >
+              <a href="/services" className="hover:text-white">
                 Services
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to="/contact"
-                className="hover:text-gray-300 transition-colors"
-              >
+              <a href="/contact" className="hover:text-white">
                 Contact
-              </Link>
+              </a>
             </li>
           </ul>
-          <div className="text-center max-w-sm">
-            <h3 className="text-xl font-semibold mb-2">
-              Subscribe to our Newsletter
-            </h3>
-            <p className="text-gray-400 mb-4">
-              Get the latest news, articles, and resources delivered straight to
-              your inbox.
-            </p>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="flex flex-col sm:flex-row items-center gap-3"
-            >
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full sm:flex-1 px-4 py-2 rounded-md text-black focus:outline-none bg-white"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-[#c718c5] hover:bg-white hover:text-black px-6 py-2 rounded-md text-white transition-colors w-full sm:w-auto"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
+        </div>
+
+        {/* Services */}
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-3">
+            Our Services
+          </h3>
+          <ul className="space-y-2 text-sm">
+            <li>Find a Cook</li>
+            <li>Find a Maid</li>
+            <li>Plumber Services</li>
+            <li>Electrician Services</li>
+          </ul>
+        </div>
+
+        {/* Contact */}
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-3">Contact</h3>
+          <p className="text-sm">📍 New Delhi, India</p>
+          <p className="text-sm">📧 support@helpmate.com</p>
+          <p className="text-sm">📞 +91 98765 43210</p>
         </div>
       </div>
 
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 text-center text-sm text-gray-400">
-          © {getCurrentYear} {copyrightText}
-        </div>
+      {/* Bottom Bar */}
+      <div className="mt-10 border-t pt-5 text-center text-sm text-white-400">
+        © {getCurrentYear} {copyrightText}
       </div>
     </footer>
   );

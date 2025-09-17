@@ -7,6 +7,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "./store/authSlice";
+import Carousel from "./Components/Carousel/Carousel";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function App() {
   return (
     <>
       <Header onLogoutClick={() => setLogoutOpen(true)} />
+      <Carousel />
       <Outlet />
       <Footer />
 
