@@ -8,7 +8,7 @@ import { getCurrentYear } from "../../utils/dateUtils";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-10 mt-12">
+    <footer className="bg-black text-white py-10 ">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Brand */}
         <div>

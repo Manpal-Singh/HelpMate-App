@@ -3,25 +3,40 @@ import React, { useState, useEffect, useRef } from "react";
 
 const slides = [
   {
-    title: "Find Trusted Cooks",
+    title: "Hire Professional Cooks",
     description:
-      "Hire professional cooks for your daily meals, events, or special occasions.",
+      "Book skilled and reliable cooks for daily meals, events, or special occasions.",
     image: "cook.jpg",
   },
   {
-    title: "Reliable Maids",
-    description: "Get experienced maids to keep your home clean and organized.",
+    title: "Trusted Home Maids",
+    description:
+      "Experienced maids to keep your home spotless, organized, and welcoming.",
     image: "maid.jpg",
   },
   {
-    title: "Plumbing Solutions",
-    description: "Quick and affordable plumbing services at your doorstep.",
-    image: "cook.jpg",
+    title: "Reliable Babysitters",
+    description:
+      "Caring babysitters who ensure your little ones are safe, happy, and engaged.",
+    image: "babysitter.jpg",
   },
   {
-    title: "Expert Electricians",
-    description: "Certified electricians to handle all your household needs.",
-    image: "maid.jpg",
+    title: "Certified Yoga Instructors",
+    description:
+      "Professional yoga teachers to help improve your health, flexibility, and mindfulness.",
+    image: "yoga.jpg",
+  },
+  {
+    title: "Expert Home Tutors",
+    description:
+      "Experienced tutors offering personalized learning to boost your child’s success.",
+    image: "tutor.jpg",
+  },
+  {
+    title: "Professional Dance Teachers",
+    description:
+      "Learn from skilled dance instructors who make every session fun, energetic, and inspiring.",
+    image: "dance.jpg",
   },
 ];
 
@@ -39,7 +54,7 @@ export default function Carousel() {
     if (!isPaused) {
       intervalRef.current = setInterval(() => {
         setCurrent((prev) => (prev + 1) % slides.length);
-      }, 3000);
+      }, 10000);
     }
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
@@ -100,6 +115,7 @@ export default function Carousel() {
               alt={slide.title}
               className="w-full md:h-100 object-cover"
             />
+
             <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-white p-6">
               <h2 className="text-2xl md:text-3xl font-bold">{slide.title}</h2>
               <p className="mt-2 text-sm md:text-base">{slide.description}</p>
