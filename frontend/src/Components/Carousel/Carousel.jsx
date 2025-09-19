@@ -1,44 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-
-const slides = [
-  {
-    title: "Hire Professional Cooks",
-    description:
-      "Book skilled and reliable cooks for daily meals, events, or special occasions.",
-    image: "cook.jpg",
-  },
-  {
-    title: "Trusted Home Maids",
-    description:
-      "Experienced maids to keep your home spotless, organized, and welcoming.",
-    image: "maid.jpg",
-  },
-  {
-    title: "Reliable Babysitters",
-    description:
-      "Caring babysitters who ensure your little ones are safe, happy, and engaged.",
-    image: "babysitter.jpg",
-  },
-  {
-    title: "Certified Yoga Instructors",
-    description:
-      "Professional yoga teachers to help improve your health, flexibility, and mindfulness.",
-    image: "yoga.jpg",
-  },
-  {
-    title: "Expert Home Tutors",
-    description:
-      "Experienced tutors offering personalized learning to boost your child’s success.",
-    image: "tutor.jpg",
-  },
-  {
-    title: "Professional Dance Teachers",
-    description:
-      "Learn from skilled dance instructors who make every session fun, energetic, and inspiring.",
-    image: "dance.jpg",
-  },
-];
+import { slides } from "../../utils/mockData";
 
 export default function Carousel() {
   const [current, setCurrent] = useState(0);

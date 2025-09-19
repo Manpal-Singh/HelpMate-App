@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <Header onLogoutClick={() => setLogoutOpen(true)} />
-      <Carousel />
+     
       <Outlet />
       <Footer />
 

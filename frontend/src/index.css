@@ -1,7 +1,4 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 :root {
   font-family: "Roboto", sans-serif;
@@ -35,11 +32,12 @@ body {
 .purpleColorText {
   color: #c718c5;
 }
-section {
+.section {
   padding: 5rem 0;
 }
 h2 {
   font-size: 32px;
+  line-height: 34px;
   margin-bottom: 20px;
   font-weight: 700;
 }
