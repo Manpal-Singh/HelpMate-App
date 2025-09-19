@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { testimonials } from "../../utils/mockData";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import Heading from "../Heading/Heading";
 
 const Testimonial = () => {
   const NextArrow = ({ onClick }) => (
@@ -49,16 +50,21 @@ const Testimonial = () => {
   };
 
   return (
-    <section className="bg-gray-50 py-16 relative">
+    <section className="bg-gray-50 py-16 relative section">
       <div className="container mx-auto px-6 relative">
-        <h2 className="text-center text-3xl md:text-4xl font-bold mb-14 text-gray-800">
-          What Our Customers Say
-        </h2>
+        <h2 className="text-center text-3xl md:text-4xl font-bold mb-14 text-gray-800"></h2>
+        <p className="text-center"></p>
+
+        <Heading
+          title="What Our Customers Say"
+          discription="Discover how Helpmate has made a difference in our customers’ lives.
+          Real stories from real people who trusted us with their daily needs."
+        />
 
         <div className="w-[80%] mx-auto">
           <Slider {...settings}>
             {testimonials.map((t) => (
-              <div key={t.id} className="p-8">
+              <div key={t.id} className="px-8 pb-8">
                 <div className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-l transition-shadow duration-300 h-full flex flex-col justify-between">
                   <div className="flex items-center gap-4 mb-6">
                     <img

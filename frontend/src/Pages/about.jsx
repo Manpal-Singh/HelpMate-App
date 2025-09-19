@@ -1,3 +1,7 @@
+import ReadyToHelp from "../Components/Footer/ReadyToHelp";
+import Team from "../Components/Team/Team";
+import Testimonial from "../Components/Testimonial/Testimonial";
+
 const About = () => {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
@@ -52,43 +56,7 @@ const About = () => {
       </section>
 
       {/* Team */}
-      <section className="py-16 px-6 bg-gray-50">
-        <h2 className="text-2xl font-semibold text-center mb-10">
-          Meet the Team
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {[
-            {
-              name: "Manpal Singh",
-              role: "Founder & Visionary",
-              img: "https://avatars.githubusercontent.com/u/18425475?v=4",
-            },
-            {
-              name: "Sarah Lee",
-              role: "Product Designer",
-              img: "https://avatars.githubusercontent.com/u/18425475?v=4",
-            },
-            {
-              name: "David Kim",
-              role: "Lead Developer",
-              img: "https://avatars.githubusercontent.com/u/18425475?v=4",
-            },
-          ].map((member, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-2xl shadow-md p-6 text-center"
-            >
-              <img
-                src={member.img}
-                alt={member.name}
-                className="w-24 h-24 mx-auto rounded-full mb-4 object-cover"
-              />
-              <h3 className="text-lg font-semibold">{member.name}</h3>
-              <p className="text-sm text-gray-500">{member.role}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <Team />
 
       {/* Timeline */}
       <section className="py-16 px-6 bg-white">
@@ -116,44 +84,9 @@ const About = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 px-6 bg-gray-50">
-        <h2 className="text-2xl font-semibold text-center mb-10">
-          What Our Users Say
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {[
-            {
-              quote:
-                "HelpMate has completely changed how I organize my work. It's like having a personal assistant!",
-              name: "Priya Sharma",
-            },
-            {
-              quote:
-                "Simple, smart, and reliable. I can’t imagine my day without it.",
-              name: "John Carter",
-            },
-          ].map((t, idx) => (
-            <div key={idx} className="bg-white rounded-2xl shadow-md p-6">
-              <p className="italic text-gray-700">“{t.quote}”</p>
-              <p className="mt-4 text-sm font-semibold text-indigo-600">
-                — {t.name}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <Testimonial />
 
-      {/* CTA */}
-      <section className="py-20 text-center bg-gradient-to-r from-purple-600 to-indigo-500 text-white">
-        <h2 className="text-3xl font-bold mb-6">Ready to get started?</h2>
-        <a
-          href="/signup"
-          className="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold shadow-md hover:bg-gray-100"
-        >
-          Join HelpMate Today
-        </a>
-      </section>
+      <ReadyToHelp />
     </div>
   );
 };
