@@ -42,6 +42,7 @@ const registerUser = async (req, res) => {
     phone,
     email,
     password: hashedPassword,
+    isAdmin: false,
   });
 
   try {
@@ -90,6 +91,7 @@ const loginUser = async (req, res) => {
         phone: user.phone,
         email: user.email,
         dob: user.dob,
+        isAdmin: user.isAdmin,
       },
     });
   } catch (err) {

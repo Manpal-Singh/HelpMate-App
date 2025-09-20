@@ -8,6 +8,7 @@ const UserRegisterSchema = new mongoose.Schema(
     dob: { type: Date, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    isAdmin: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

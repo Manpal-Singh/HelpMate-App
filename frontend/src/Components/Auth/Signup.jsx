@@ -33,7 +33,7 @@ const Signup = () => {
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       const formattedValues = {
         ...values,
-        dob: values.dob ? dayjs(values.dob).format("DD-MM-YYYY") : "",
+        dob: values.dob ? dayjs(values.dob) : "",
       };
       try {
         const response = await fetch("/api/auth/register", {
@@ -116,24 +116,37 @@ const Signup = () => {
 
           <div className="flex gap-3 mb-4">
             <MuiTelInput
-              className="flex-1"
-              size="small"
+              id="phone"
               name="phone"
               label="Phone Number"
               placeholder="Phone Number"
+              className="flex-1"
+              size="small"
+              defaultCountry="US"
+              value={formik.values.phone || ""}
               textFieldProps={{
                 placeholder: "Enter phone number",
               }}
-              value={formik.values.phone || ""}
               onChange={(value) => formik.setFieldValue("phone", value)}
               onBlur={() => formik.setFieldTouched("phone", true)}
-              defaultCountry="US"
               error={formik.touched.phone && Boolean(formik.errors.phone)}
               helperText={formik.touched.phone && formik.errors.phone}
+              sx={{
+                "& .MuiTelInput-IconButton": {
+                  padding: 0,
+                },
+              }}
             />
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
+                id="dob"
+                name="dob"
+                label="Date of Birth"
                 className="flex-1"
+                value={formik.values.dob}
+                onChange={(value) => formik.setFieldValue("dob", value)}
+                onBlur={() => formik.setFieldTouched("dob", true)}
+                format="DD-MM-YYYY"
                 open={open}
                 onOpen={() => setOpen(true)}
                 onClose={() => setOpen(false)}
@@ -157,12 +170,6 @@ const Signup = () => {
                     },
                   },
                 }}
-                id="dob"
-                name="dob"
-                label="Date of Birth"
-                value={formik.values.dob}
-                onChange={(value) => formik.setFieldValue("dob", value)}
-                onBlur={() => formik.setFieldTouched("dob", true)}
               />
             </LocalizationProvider>
           </div>
