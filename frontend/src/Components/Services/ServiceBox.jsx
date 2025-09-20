@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const ServiceBox = ({ title, description, image, serviceName }) => {
@@ -20,4 +19,3 @@ const ServiceBox = ({ title, description, image, serviceName }) => {
 };
 
 export default ServiceBox;
-

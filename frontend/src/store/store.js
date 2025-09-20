@@ -11,6 +11,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // localStorage
 import authReducer from "./authSlice";
+import serviceReducer from "./serviceSlice"
 
 // Persist config for auth slice
 const persistConfig = {
@@ -20,6 +21,7 @@ const persistConfig = {
 };
 const rootReducer = combineReducers({
   auth: persistReducer(persistConfig, authReducer),
+  service: serviceReducer,
 });
 
 export const store = configureStore({

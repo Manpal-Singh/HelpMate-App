@@ -15,6 +15,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./store/store.js";
 import Services from "./Pages/services.jsx";
 import ServiceIteamList from "./Components/Services/ServiceIteamList.jsx";
+import ServiceDetail from "./Components/Services/ServiceDetail.jsx";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "services/:name",
         element: <ServiceIteamList />,
+      },
+      {
+        path: "services/:name/:title",
+        element: <ServiceDetail />,
       },
     ],
   },
