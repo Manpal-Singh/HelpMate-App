@@ -4,7 +4,6 @@ const Body = () => {
   return (
     <>
       <BodyContent />
-      {/* <Advertisement /> */}
     </>
   );
 };
