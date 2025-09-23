@@ -10,13 +10,15 @@ const ServiceDetail = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const params = useParams();
   const serviceData = useSelector((state) => state.service.serviceData);
+
+  console.log(serviceData);
   const navigate = useNavigate();
 
   const serviceDataList = serviceData.filter(
     (service) => service.serviceName === params.name
   );
 
-  const ServiceDetails = serviceDataList[0].serviceItemList;
+  const ServiceDetails = serviceDataList[0]?.serviceItemList;
 
   const ServiceDetail = ServiceDetails.filter(
     (service) => service.firstName === params.title

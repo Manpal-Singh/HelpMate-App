@@ -14,11 +14,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { signupValidationSchema } from "../../ValidationSchema/authSchema";
 import dayjs from "dayjs";
 import { toast } from "react-toastify";
+import Heading from "../Heading/Heading";
 
 const Signup = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  
+
   const formik = useFormik({
     initialValues: {
       firstname: "",
@@ -62,11 +63,9 @@ const Signup = () => {
   });
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-100 to-blue-100">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-purple-50">
       <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-lg text-center">
-        <h2 className="text-2xl font-semibold mb-6 text-black">
-          CREATE AN ACCOUNT
-        </h2>
+        <Heading title="SIGN UP" />
 
         <form onSubmit={formik.handleSubmit}>
           <div className="flex gap-3 mb-4">
@@ -248,7 +247,9 @@ const Signup = () => {
             variant="contained"
             fullWidth
             type="submit"
-            className="w-full py-2 text-white font-bold rounded-md shadow-md bg-gradient-to-r from-green-400 to-blue-400 hover:opacity-90 transition"
+            className="w-full py-2 text-white font-bold rounded-md shadow-md bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 
+  hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 
+  transition-all duration-300"
           >
             SIGNUP
           </Button>
@@ -256,7 +257,7 @@ const Signup = () => {
 
         <p className="mt-6 text-sm">
           Have already an account?{" "}
-          <Link to="/login" className="text-blue-300">
+          <Link to="/login" className="purpleColorText">
             Login Here
           </Link>
         </p>

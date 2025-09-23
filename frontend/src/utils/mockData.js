@@ -1,5 +1,10 @@
 // Testimonials
-
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import EventAvailableIcon from "@mui/icons-material/EventAvailable";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import ShieldIcon from "@mui/icons-material/Security";
+import SparklesIcon from "@mui/icons-material/AutoAwesome";
+import LightbulbIcon from "@mui/icons-material/Lightbulb";
 // import Cook from "../assets/images/cook.jpg";
 // import Maid from "../assets/images/maid.jpg";
 
@@ -97,6 +102,75 @@ export const teamData = [
     name: "David Kim",
     role: "Lead Developer",
     img: "https://avatars.githubusercontent.com/u/18425475?v=4",
+  },
+];
+
+export const whatWeOffer = [
+  {
+    title: "Cook",
+    icon: "🍳",
+    desc: "Skilled cooks to prepare healthy and delicious meals for your family.",
+  },
+  {
+    title: "Maid",
+    icon: "🧹",
+    desc: "Reliable maids to keep your home spotless and organized.",
+  },
+  {
+    title: "Plumber",
+    icon: "🔧",
+    desc: "Professional plumbers to fix leaks, pipes, and fittings quickly.",
+  },
+  {
+    title: "Electrician",
+    icon: "💡",
+    desc: "Certified electricians to handle repairs, installations, and wiring.",
+  },
+  {
+    title: "Babysitter",
+    icon: "🍼",
+    desc: "Trusted babysitters to care for your little ones with love and safety.",
+  },
+  {
+    title: "Driver",
+    icon: "🚗",
+    desc: "Experienced drivers for your daily commutes and special occasions.",
+  },
+];
+
+export const whyChooseHelpMate = [
+  {
+    title: "Trusted Professionals",
+    desc: "Background-verified helpers you can rely on.",
+    icon: VerifiedUserIcon,
+  },
+  {
+    title: "Easy Booking",
+    desc: "Book services instantly with just a few taps.",
+    icon: EventAvailableIcon,
+  },
+  {
+    title: "Affordable Pricing",
+    desc: "Quality services that fit your budget.",
+    icon: AttachMoneyIcon,
+  },
+];
+
+export const ourCoreValues = [
+  {
+    title: "Reliability",
+    desc: "Always there when you need it, 24/7.",
+    icon: ShieldIcon,
+  },
+  {
+    title: "Simplicity",
+    desc: "A clean, intuitive experience for everyone.",
+    icon: SparklesIcon,
+  },
+  {
+    title: "Innovation",
+    desc: "Constantly evolving with the latest AI tech.",
+    icon: LightbulbIcon,
   },
 ];
 

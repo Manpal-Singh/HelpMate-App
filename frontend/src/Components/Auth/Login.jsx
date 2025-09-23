@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../store/authSlice";
 import { loginValidationSchema } from "../../ValidationSchema/authSchema";
+import Heading from "../Heading/Heading";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -52,11 +53,9 @@ const Login = () => {
   });
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-100 to-blue-100">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-purple-50">
       <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-lg text-center">
-        <h2 className="text-2xl font-semibold mb-6 text-black">
-          LOGIN TO YOUR ACCOUNT
-        </h2>
+        <Heading title="LOG IN" />
 
         <form onSubmit={formik.handleSubmit}>
           <div className="mb-4">
@@ -111,7 +110,9 @@ const Login = () => {
             variant="contained"
             fullWidth
             type="submit"
-            className="w-full py-2 text-white font-bold rounded-md shadow-md bg-gradient-to-r from-green-400 to-blue-400 hover:opacity-90 transition"
+            className="w-full py-2 text-white font-bold rounded-md shadow-md bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 
+  hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 
+  transition-all duration-300"
           >
             LOGIN
           </Button>
@@ -119,7 +120,7 @@ const Login = () => {
 
         <p className="mt-6 text-sm">
           Dont have an account?{" "}
-          <Link to="/signup" className="text-blue-300">
+          <Link to="/signup" className="purpleColorText">
             Signup here
           </Link>
         </p>
