@@ -5,35 +5,21 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Heading from "../Heading/Heading";
 import BookingModal from "../Auth/BookingModal";
 
-const ServiceDetail = () => {
+const ServiceMateDetail = () => {
   const [open, setOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
 
-  const serviceData = useSelector((state) => state.service.serviceData);
+  const services = useSelector((state) => state.service.serviceData);
 
-  const serviceDataList = serviceData.filter(
-    (service) => service.serviceName === params.name
-  );
+  const service = services.filter(
+    (service) => service.serviceName === params.serviceName
+  )[0];
 
-  const ServiceDetails = serviceDataList[0]?.serviceItemList;
-
-  const ServiceDetail = ServiceDetails.filter(
-    (service) => service.firstName === params.serviceDetail
-  );
-
-  const item = ServiceDetail[0];
-
-  const handleOpen = () => {
-    setSelectedItem(item);
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    setSelectedItem(null);
-  };
+  const serviceMate = service?.serviceItemList?.filter(
+    (serviceMate) => serviceMate.firstName === params.serviceMateDetail
+  )[0];
 
   const {
     firstName,
@@ -45,7 +31,17 @@ const ServiceDetail = () => {
     experience,
     description,
     availableSlots,
-  } = ServiceDetail[0];
+  } = serviceMate;
+
+  const handleOpen = () => {
+    setSelectedItem(serviceMate);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedItem(null);
+  };
 
   return (
     <section className="section py-12">
@@ -127,4 +123,4 @@ const ServiceDetail = () => {
   );
 };
 
-export default ServiceDetail;
+export default ServiceMateDetail;

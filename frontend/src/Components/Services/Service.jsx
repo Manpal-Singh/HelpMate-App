@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
-const ServiceBox = ({ title, description, image, serviceName }) => {
+const Service = ({ service }) => {
+  const { image, title, description, serviceName } = service;
+
   return (
     <div className="bg-white shadow-md rounded-lg p-5 w-[30%] flex flex-col items-center text-center hover:shadow-xl transition-shadow text-black">
       <div className="text-4xl mb-3">
@@ -18,4 +20,4 @@ const ServiceBox = ({ title, description, image, serviceName }) => {
   );
 };
 
-export default ServiceBox;
+export default Service;
