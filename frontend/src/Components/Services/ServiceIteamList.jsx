@@ -2,13 +2,13 @@ import { useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import Heading from "../Heading/Heading";
 
-export default function ServiceIteamList({}) {
+export default function ServiceIteamList() {
   const params = useParams();
   const serviceData = useSelector((state) => state.service.serviceData);
 
-  const serviceDataList = serviceData.filter(
+  const serviceItem = serviceData.filter(
     (service) => service.serviceName === params.name
-  );
+  )[0];
 
   return (
     <section className="">
@@ -19,9 +19,8 @@ export default function ServiceIteamList({}) {
       />
       <div className="container">
         <div className="flex  flex-wrap justify-center gap-8 p-6 mt-5 mb-5">
-          {serviceDataList.length > 0 &&
-            serviceDataList[0].serviceItemList.length > 0 &&
-            serviceDataList[0].serviceItemList.map((item) => (
+          {serviceItem.serviceItemList.length > 0 &&
+            serviceItem.serviceItemList.map((item) => (
               <div className="max-w-[30%] mx-auto">
                 <div className="flex bg-white flex-col rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
                   <div className="w-[100%] overflow-hidden">
@@ -56,7 +55,7 @@ export default function ServiceIteamList({}) {
 
                     <div className="mt-5 flex justify-start">
                       <Link
-                        to={item.firstName}
+                        to={`/services/service/${serviceItem.serviceName}/${item.firstName}`}
                         className="px-4 py-2 rounded-lg bg-purple-600 text-white"
                       >
                         View Details

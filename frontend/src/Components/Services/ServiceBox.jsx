@@ -9,7 +9,7 @@ const ServiceBox = ({ title, description, image, serviceName }) => {
       <h3 className="text-lg font-semibold mb-2">{title}</h3>
       <p className="text-gray-600 text-sm">{description}</p>
       <Link
-        to={`services/${serviceName}`}
+        to={`/services/service/${serviceName}`}
         className="mt-4 purpleColorBg w-full text-white px-4 py-2 rounded-lg"
       >
         Details

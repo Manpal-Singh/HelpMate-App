@@ -47,11 +47,11 @@ const router = createBrowserRouter([
         element: <Services />,
       },
       {
-        path: "services/:name",
+        path: "services/service/:name",
         element: <ServiceIteamList />,
       },
       {
-        path: "services/:name/:title",
+        path: "services/service/:name/:serviceDetail",
         element: <ServiceDetail />,
       },
     ],
