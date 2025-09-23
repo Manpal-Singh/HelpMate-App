@@ -16,15 +16,14 @@ import { useSelector } from "react-redux";
 
 const Header = ({ onLogoutClick }) => {
   const [profileMenuAnchorEl, setProfileMenuAnchorEl] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScroll, setIsScroll] = useState(false);
 
-  const { isLoggedIn } = useSelector((state) => state.auth);
+  const { isLoggedIn, user } = useSelector((state) => state.auth);
 
   const handleAvatarClick = (event) => {
     setProfileMenuAnchorEl(event.currentTarget);
   };
-
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScroll, setIsScroll] = useState(false);
 
   const handleScroll = () => {
     if (window.scrollY >= scrollThreshold) {
@@ -61,6 +60,14 @@ const Header = ({ onLogoutClick }) => {
 
           <div className="flex flex-row items-center justify-center">
             <nav className="hidden md:flex items-center justify-center space-x-6">
+              {isLoggedIn && user.isAdmin && (
+                <Link
+                  to="admin"
+                  className="bg-gradient-to-r from-[#7e22ce] to-[#db2777] px-4 py-2 rounded-lg   shadow-md hover:shadow-lg hover:opacity-90 transition-all duration-200 inline-flex items-center justify-center "
+                >
+                  Admin
+                </Link>
+              )}
               <Link to="/" className="">
                 Home
               </Link>
@@ -87,7 +94,7 @@ const Header = ({ onLogoutClick }) => {
                     to="login"
                     className="purpleColorBg px-4 py-2 rounded-lg   shadow-md hover:shadow-lg hover:opacity-90 transition-all duration-200 inline-flex items-center justify-center "
                   >
-                    Login
+                    Login{user.isAdmin}
                   </Link>
                 </>
               )}

@@ -10,7 +10,6 @@ export const ServiceList = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getServiceData();
-      console.log(data);
       dispatch(setService(data));
     };
     fetchData();
