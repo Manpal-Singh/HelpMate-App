@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { IconButton, Avatar } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-
 import {
   helpMateLogo,
   scrollThreshold,
   helpMateLogoText,
 } from "../../Constants/Constants";
-import "../../../src/index.css";
-import Avatar from "@mui/material/Avatar";
-import { IconButton } from "@mui/material";
 import ProfileMenu from "../ProfileMenu/ProfileMenu";
-import { useSelector } from "react-redux";
+import "../../../src/index.css";
 
 const Header = ({ onLogoutClick }) => {
   const [profileMenuAnchorEl, setProfileMenuAnchorEl] = useState(null);
@@ -94,7 +92,7 @@ const Header = ({ onLogoutClick }) => {
                     to="login"
                     className="purpleColorBg px-4 py-2 rounded-lg   shadow-md hover:shadow-lg hover:opacity-90 transition-all duration-200 inline-flex items-center justify-center "
                   >
-                    Login{user.isAdmin}
+                    Login
                   </Link>
                 </>
               )}
@@ -108,7 +106,7 @@ const Header = ({ onLogoutClick }) => {
                     sx={{ ml: 2 }}
                   >
                     <Avatar
-                      alt="User"
+                      alt="Avatar"
                       src="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250"
                     />
                   </IconButton>
@@ -133,7 +131,7 @@ const Header = ({ onLogoutClick }) => {
 
       {isOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2 bg-black">
-          <Link to="#/" className="block hover:text-gray-300">
+          <Link to="/" className="block hover:text-gray-300">
             Home
           </Link>
           <Link to="about" className="block hover:text-gray-300">

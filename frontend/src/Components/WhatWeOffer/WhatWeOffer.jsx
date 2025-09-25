@@ -1,6 +1,5 @@
-import React from "react";
-import { whatWeOffer } from "../../utils/mockData";
 import Heading from "../Heading/Heading";
+import { whatWeOffer } from "../../utils/mockData";
 
 const WhatWeOffer = () => {
   return (

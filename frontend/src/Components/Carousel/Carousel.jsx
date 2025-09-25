@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { slides } from "../../utils/mockData";
 
 export default function Carousel() {
@@ -70,20 +70,23 @@ export default function Carousel() {
           transform: `translateX(-${current * 100}%)`,
         }}
       >
-        {slides.map((slide, idx) => (
-          <div key={idx} className="w-full flex-shrink-0 relative">
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="w-full md:h-100 object-cover"
-            />
+        {slides.length > 0 &&
+          slides.map((slide, idx) => (
+            <div key={idx} className="w-full flex-shrink-0 relative">
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full md:h-100 object-cover"
+              />
 
-            <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-white p-6">
-              <h2 className="text-2xl md:text-3xl font-bold">{slide.title}</h2>
-              <p className="mt-2 text-sm md:text-base">{slide.description}</p>
+              <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-white p-6">
+                <h2 className="text-2xl md:text-3xl font-bold">
+                  {slide.title}
+                </h2>
+                <p className="mt-2 text-sm md:text-base">{slide.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
 
       {/* Navigation Buttons */}

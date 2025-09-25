@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import Heading from "../Heading/Heading";
 
@@ -10,7 +9,7 @@ const ReadyToHelp = () => {
       <div className="container flex items-center flex-col">
         <Heading
           title="Ready to find help today?"
-          className="mb-0 text-white"  // <--- override/extend styles here
+          className="mb-0 text-white"
         />
         <button
           onClick={() => navigate("/services")}

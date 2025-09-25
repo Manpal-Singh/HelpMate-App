@@ -1,13 +1,12 @@
-import Header from "./Components/Header/Header";
-import LogoutPopup from "./Components/Auth/Logout";
-import Footer from "./Components/Footer/Footer";
-import { Outlet, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
+import { Outlet, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import LogoutPopup from "./Components/Auth/Logout";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
 import { logoutUser } from "./store/authSlice";
-import Carousel from "./Components/Carousel/Carousel";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,7 +23,7 @@ function App() {
   return (
     <>
       <Header onLogoutClick={() => setLogoutOpen(true)} />
-     
+
       <Outlet />
       <Footer />
 

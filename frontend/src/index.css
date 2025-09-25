@@ -41,3 +41,7 @@ h2 {
   margin-bottom: 20px;
   font-weight: 700;
 }
+.arrowCircleRightIcon, .arrowCircleLeftIcon {
+  font-size: 50px !important;
+  color: #c718c5;
+}

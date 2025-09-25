@@ -1,4 +1,4 @@
-import BodyContent from "../BodyContent/BodyContent";
+import BodyContent from "./BodyContent";
 
 const Body = () => {
   return (

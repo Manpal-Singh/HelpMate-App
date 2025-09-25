@@ -52,21 +52,29 @@ export const testimonials = [
     id: 1,
     name: "Priya, Delhi",
     text: "Helpmate made my life easier! The cook I hired was amazing.",
+    imgSrc:
+      "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
   },
   {
     id: 2,
     name: "Ramesh, Mumbai",
     text: "Found a trustworthy maid within a day. Highly recommended!",
+    imgSrc:
+      "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
   },
   {
     id: 3,
     name: "Ramesh, Mumbai",
     text: "Found a trustworthy maid within a day. Highly recommended!",
+    imgSrc:
+      "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
   },
   {
     id: 4,
     name: "Ramesh, Mumbai",
     text: "Found a trustworthy maid within a day. Highly recommended!",
+    imgSrc:
+      "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
   },
 ];
 
